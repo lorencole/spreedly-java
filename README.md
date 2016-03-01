@@ -5,7 +5,7 @@ spreedly-java
 <dependency>
     <groupId>cc.protea.spreedly</groupId>
     <artifactId>spreedly</artifactId>
-    <version>0.9.5</version>
+    <version>0.9.6</version>
 </dependency>
 ```
 
@@ -32,3 +32,7 @@ Since I assume that you're going to be using this in a much larger project, all 
 Spreedly to avoid confusion.
 
 To run the (trivial) tests, simply set the environment variables SPREEDLYCORE_ENVIRONMENT_KEY and SPREEDLYCORE_API_SECRET to appropriate values.
+
+###Upgrading to 0.9.6###
+Starting with v0.9.6 requests may throw an exception of type ```SpreedlyException``` if Spreedly returns an error; previously these failed requests returned a newly instantiated object of the expected type. This may occur when adding, updating, or listing gateways for an environment. Failed transactions do not throw an exception - these requests continue to return a ```SpreedlyTransactionResponse```.
+
